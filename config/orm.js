@@ -13,6 +13,36 @@ let orm = {
             if (err) throw err;
             // Do something with results.
             console.log(result);
-        })
+        });
+    },
+    insertOne: function(burgerName) {
+        // Setup query string.
+        let query = 'INSERT INTO burgers (burger_name, devoured) VALUES (?, false)';
+        // Run query() method.
+        connection.query(query, burgerName, function(err, result) {
+            // Error handling
+            if (err) throw err;
+            // Do something with results.
+            console.log(result);
+        });
+    },
+    updateOne: function(eaten, burger_id) {
+        // Setup query string.
+        let query = 'UPDATE burgers SET ';
+        query += objToSql(eaten);
+        query += ' WHERE ';
+        query += burger_id;
+
+        console.log(query);
+        // Run query() method.
+        connection.query(query, function(err, result) {
+            // Error handling
+            if (err) throw err;
+            // Do something with results
+            console.log(result);
+        });
     }
-}
+};
+
+// Exporting the ORM object for the model burger.js
+module.exports = orm;
