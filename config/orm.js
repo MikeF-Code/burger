@@ -30,7 +30,7 @@ let orm = {
         // Setup query string.
         let query = 'UPDATE burgers SET ';
         query += objToSql(eaten);
-        query += ' WHERE ';
+        query += ' WHERE id= ';
         query += burger_id;
 
         console.log(query);
