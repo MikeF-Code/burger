@@ -1,6 +1,6 @@
 // *Requirements
 const express = require("express");
-
+const orm = require("./config/orm.js");
 // Use process.env.PORT to allow app to run on Heroku.  Use double pipe to allow app to run locally.
 const PORT = process.env.PORT || 8080;
 

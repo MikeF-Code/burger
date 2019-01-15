@@ -3,10 +3,10 @@
 
 <ul>
     {{#each burgers}}
-        {{#unless eaten}}
+        {{#unless devoured}}
             <li>
                 {{burger_name}}
-                <button class="change-eaten" data-id="{{id}}" data-eaten="{{eaten}}">Devour It!</button>
+                <button class="change-eaten" data-id="{{id}}">Devour It!</button>
             </li>
         {{/unless}}
     {{/each}}
@@ -16,8 +16,8 @@
 
 <ul>
     {{#each burgers}}
-        {{#if eaten}}
-            <li>{{burger_name}}</li>>
+        {{#if devoured}}
+            <li>{{burger_name}}</li>
         {{/if}}
     {{/each}}
 </ul>

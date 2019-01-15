@@ -42,7 +42,7 @@ router.put("/api/burgers/:id", function(req, res) {
     console.log("ID of burger to be updated is " + burger_id);
     // updateOne() method from route.  Will flip the `eaten` boolean value for the burger with the ID pulled defined in `burger_id`.
     burger.updateOne({
-        eaten: req.body.eaten
+        eaten: true
     }, burger_id, function(result) {
         if (result.changedRows == 0) {
             return res.status(404).end();

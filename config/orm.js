@@ -28,11 +28,7 @@ let orm = {
     },
     updateOne: function(eaten, burger_id, cb) {
         // Setup query string.
-        let query = 'UPDATE burgers SET ';
-        query += objToSql(eaten);
-        query += ' WHERE id= ';
-        query += burger_id;
-
+        let query = 'UPDATE burgers SET devoured=true WHERE id= ' + burger_id;
         console.log(query);
         // Run query() method.
         connection.query(query, function(err, result) {
