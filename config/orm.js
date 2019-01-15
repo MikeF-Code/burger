@@ -4,7 +4,7 @@ const connection = require("./connection.js");
 // Setup the ORM.
 // An ORM is an object, so we will be creating methods stored inside the object that we can reference later (ex. orm.selectAll()).  These methods contain SQL queries with sanitized inputs to prevent injection.
 let orm = {
-    selectAll: function(callback) {
+    selectAll: function(cb) {
         // Setup query string.
         let query = 'SELECT * FROM burgers';
         // Use query() method of `connection` to run the query string against the DB, and return the results in a callback.
@@ -12,10 +12,10 @@ let orm = {
             // Error handling
             if (err) throw err;
             // Do something with results.
-            callback(result);
+            cb(result);
         });
     },
-    insertOne: function(burgerName, callback) {
+    insertOne: function(burgerName, cb) {
         // Setup query string.
         let query = 'INSERT INTO burgers (burger_name, devoured) VALUES (?, false)';
         // Run query() method.
@@ -23,10 +23,10 @@ let orm = {
             // Error handling
             if (err) throw err;
             // Do something with results.
-            callback(result);
+            cb(result);
         });
     },
-    updateOne: function(eaten, burger_id, callback) {
+    updateOne: function(eaten, burger_id, cb) {
         // Setup query string.
         let query = 'UPDATE burgers SET ';
         query += objToSql(eaten);
@@ -39,7 +39,7 @@ let orm = {
             // Error handling
             if (err) throw err;
             // Do something with results
-            callback(result);
+            cb(result);
         });
     }
 };

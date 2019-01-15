@@ -24,7 +24,7 @@ router.get("/", function(req, res) {
 });
 
 // POST a new burger.  
-router.post("/api/burgers", function(req,res) {
+router.post("/api/burgers", function(req, res) {
     // insertOne() method from route.  Pulls the name of the burger as submitted in the client request.
     burger.insertOne(req.body.name, function(result) {
         // Send the results to the console for debug purposes.
@@ -51,3 +51,5 @@ router.put("/api/burgers/:id", function(req, res) {
         }  
     });
 });
+
+module.exports = router;
