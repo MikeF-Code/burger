@@ -2,3 +2,7 @@
 body {
     margin: auto
 }
+
+img {
+    max-height: 100px
+}
